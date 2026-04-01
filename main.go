@@ -4,15 +4,19 @@ import "fmt"
 
 func main() {
 	transactions := []float64{}
+	var result float64
 	for {
-
 		transaction := scanTransaction()
 		if transaction == 0 {
 			break
 		}
 		transactions = append(transactions, transaction)
 	}
-	fmt.Println(transactions)
+
+	for _, value := range transactions {
+		result += value
+	}
+	fmt.Println(transactions, result)
 }
 
 func scanTransaction() float64 {
